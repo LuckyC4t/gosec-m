@@ -6,7 +6,7 @@ import (
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/securego/gosec/v2"
+	"gosec-m"
 )
 
 type mockrule struct {

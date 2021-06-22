@@ -18,7 +18,7 @@ import (
 	"go/ast"
 	"regexp"
 
-	"github.com/securego/gosec/v2"
+	"gosec-m"
 )
 
 type badTempFile struct {

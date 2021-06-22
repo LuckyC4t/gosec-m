@@ -17,16 +17,16 @@ package report
 import (
 	"io"
 
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/report/csv"
-	"github.com/securego/gosec/v2/report/golint"
-	"github.com/securego/gosec/v2/report/html"
-	"github.com/securego/gosec/v2/report/json"
-	"github.com/securego/gosec/v2/report/junit"
-	"github.com/securego/gosec/v2/report/sarif"
-	"github.com/securego/gosec/v2/report/sonar"
-	"github.com/securego/gosec/v2/report/text"
-	"github.com/securego/gosec/v2/report/yaml"
+	"gosec-m"
+	"gosec-m/report/csv"
+	"gosec-m/report/golint"
+	"gosec-m/report/html"
+	"gosec-m/report/json"
+	"gosec-m/report/junit"
+	"gosec-m/report/sarif"
+	"gosec-m/report/sonar"
+	"gosec-m/report/text"
+	"gosec-m/report/yaml"
 )
 
 // Format enumerates the output format for reported issues

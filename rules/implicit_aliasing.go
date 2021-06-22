@@ -4,7 +4,7 @@ import (
 	"go/ast"
 	"go/token"
 
-	"github.com/securego/gosec/v2"
+	"gosec-m"
 )
 
 type implicitAliasing struct {

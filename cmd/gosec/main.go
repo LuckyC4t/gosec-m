@@ -23,9 +23,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/report"
-	"github.com/securego/gosec/v2/rules"
+	"gosec-m"
+	"gosec-m/report"
+	"gosec-m/rules"
 )
 
 const (

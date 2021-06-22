@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/cwe"
+	"gosec-m"
+	"gosec-m/cwe"
 )
 
 // GenerateReport Convert a gosec report to a Sarif Report

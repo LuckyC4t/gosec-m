@@ -3,7 +3,7 @@ package cwe_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/securego/gosec/v2/cwe"
+	"gosec-m/cwe"
 )
 
 var _ = Describe("CWE Types", func() {

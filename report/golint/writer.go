@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/securego/gosec/v2"
+	"gosec-m"
 )
 
 // WriteReport write a report in golint format to the output writer

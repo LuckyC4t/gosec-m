@@ -3,8 +3,8 @@ package sonar_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/report/sonar"
+	"gosec-m"
+	"gosec-m/report/sonar"
 )
 
 var _ = Describe("Sonar Formatter", func() {

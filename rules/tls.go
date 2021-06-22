@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"go/ast"
 
-	"github.com/securego/gosec/v2"
+	"gosec-m"
 )
 
 type insecureConfigTLS struct {

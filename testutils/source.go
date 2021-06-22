@@ -1,6 +1,6 @@
 package testutils
 
-import "github.com/securego/gosec/v2"
+import "gosec-m"
 
 // CodeSample encapsulates a snippet of source code that compiles, and how many errors should be detected
 type CodeSample struct {

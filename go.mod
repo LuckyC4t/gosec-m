@@ -1,4 +1,4 @@
-module github.com/securego/gosec/v2
+module gosec-m
 
 require (
 	github.com/google/uuid v1.2.0
