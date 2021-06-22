@@ -56,61 +56,61 @@ func NewRuleFilter(action bool, ruleIDs ...string) RuleFilter {
 }
 
 // Generate the list of rules to use
-func Generate(filters ...RuleFilter) RuleList {
-	rules := []RuleDefinition{
-		// misc
-		{"G101", "Look for hardcoded credentials", NewHardcodedCredentials},
-		{"G102", "Bind to all interfaces", NewBindsToAllNetworkInterfaces},
-		{"G103", "Audit the use of unsafe block", NewUsingUnsafe},
-		{"G104", "Audit errors not checked", NewNoErrorCheck},
-		{"G106", "Audit the use of ssh.InsecureIgnoreHostKey function", NewSSHHostKey},
-		{"G107", "Url provided to HTTP request as taint input", NewSSRFCheck},
-		{"G108", "Profiling endpoint is automatically exposed", NewPprofCheck},
-		{"G109", "Converting strconv.Atoi result to int32/int16", NewIntegerOverflowCheck},
-		{"G110", "Detect io.Copy instead of io.CopyN when decompression", NewDecompressionBombCheck},
-
-		// injection
-		{"G201", "SQL query construction using format string", NewSQLStrFormat},
-		{"G202", "SQL query construction using string concatenation", NewSQLStrConcat},
-		{"G203", "Use of unescaped data in HTML templates", NewTemplateCheck},
-		{"G204", "Audit use of command execution", NewSubproc},
-
-		// filesystem
-		{"G301", "Poor file permissions used when creating a directory", NewMkdirPerms},
-		{"G302", "Poor file permissions used when creation file or using chmod", NewFilePerms},
-		{"G303", "Creating tempfile using a predictable path", NewBadTempFile},
-		{"G304", "File path provided as taint input", NewReadFile},
-		{"G305", "File path traversal when extracting zip archive", NewArchive},
-		{"G306", "Poor file permissions used when writing to a file", NewWritePerms},
-		{"G307", "Unsafe defer call of a method returning an error", NewDeferredClosing},
-
-		// crypto
-		{"G401", "Detect the usage of DES, RC4, MD5 or SHA1", NewUsesWeakCryptography},
-		{"G402", "Look for bad TLS connection settings", NewIntermediateTLSCheck},
-		{"G403", "Ensure minimum RSA key length of 2048 bits", NewWeakKeyStrength},
-		{"G404", "Insecure random number source (rand)", NewWeakRandCheck},
-
-		// blocklist
-		{"G501", "Import blocklist: crypto/md5", NewBlocklistedImportMD5},
-		{"G502", "Import blocklist: crypto/des", NewBlocklistedImportDES},
-		{"G503", "Import blocklist: crypto/rc4", NewBlocklistedImportRC4},
-		{"G504", "Import blocklist: net/http/cgi", NewBlocklistedImportCGI},
-		{"G505", "Import blocklist: crypto/sha1", NewBlocklistedImportSHA1},
-
-		// memory safety
-		{"G601", "Implicit memory aliasing in RangeStmt", NewImplicitAliasing},
-	}
-
-	ruleMap := make(map[string]RuleDefinition)
-
-RULES:
-	for _, rule := range rules {
-		for _, filter := range filters {
-			if filter(rule.ID) {
-				continue RULES
-			}
-		}
-		ruleMap[rule.ID] = rule
-	}
-	return ruleMap
-}
+//func Generate(filters ...RuleFilter) RuleList {
+//	rules := []RuleDefinition{
+//		// misc
+//		{"G101", "Look for hardcoded credentials", NewHardcodedCredentials},
+//		{"G102", "Bind to all interfaces", NewBindsToAllNetworkInterfaces},
+//		{"G103", "Audit the use of unsafe block", NewUsingUnsafe},
+//		{"G104", "Audit errors not checked", NewNoErrorCheck},
+//		{"G106", "Audit the use of ssh.InsecureIgnoreHostKey function", NewSSHHostKey},
+//		{"G107", "Url provided to HTTP request as taint input", NewSSRFCheck},
+//		{"G108", "Profiling endpoint is automatically exposed", NewPprofCheck},
+//		{"G109", "Converting strconv.Atoi result to int32/int16", NewIntegerOverflowCheck},
+//		{"G110", "Detect io.Copy instead of io.CopyN when decompression", NewDecompressionBombCheck},
+//
+//		// injection
+//		{"G201", "SQL query construction using format string", NewSQLStrFormat},
+//		{"G202", "SQL query construction using string concatenation", NewSQLStrConcat},
+//		{"G203", "Use of unescaped data in HTML templates", NewTemplateCheck},
+//		{"G204", "Audit use of command execution", NewSubproc},
+//
+//		// filesystem
+//		{"G301", "Poor file permissions used when creating a directory", NewMkdirPerms},
+//		{"G302", "Poor file permissions used when creation file or using chmod", NewFilePerms},
+//		{"G303", "Creating tempfile using a predictable path", NewBadTempFile},
+//		{"G304", "File path provided as taint input", NewReadFile},
+//		{"G305", "File path traversal when extracting zip archive", NewArchive},
+//		{"G306", "Poor file permissions used when writing to a file", NewWritePerms},
+//		{"G307", "Unsafe defer call of a method returning an error", NewDeferredClosing},
+//
+//		// crypto
+//		{"G401", "Detect the usage of DES, RC4, MD5 or SHA1", NewUsesWeakCryptography},
+//		{"G402", "Look for bad TLS connection settings", NewIntermediateTLSCheck},
+//		{"G403", "Ensure minimum RSA key length of 2048 bits", NewWeakKeyStrength},
+//		{"G404", "Insecure random number source (rand)", NewWeakRandCheck},
+//
+//		// blocklist
+//		{"G501", "Import blocklist: crypto/md5", NewBlocklistedImportMD5},
+//		{"G502", "Import blocklist: crypto/des", NewBlocklistedImportDES},
+//		{"G503", "Import blocklist: crypto/rc4", NewBlocklistedImportRC4},
+//		{"G504", "Import blocklist: net/http/cgi", NewBlocklistedImportCGI},
+//		{"G505", "Import blocklist: crypto/sha1", NewBlocklistedImportSHA1},
+//
+//		// memory safety
+//		{"G601", "Implicit memory aliasing in RangeStmt", NewImplicitAliasing},
+//	}
+//
+//	ruleMap := make(map[string]RuleDefinition)
+//
+//RULES:
+//	for _, rule := range rules {
+//		for _, filter := range filters {
+//			if filter(rule.ID) {
+//				continue RULES
+//			}
+//		}
+//		ruleMap[rule.ID] = rule
+//	}
+//	return ruleMap
+//}

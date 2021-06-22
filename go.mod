@@ -1,6 +1,8 @@
 module gosec-m
 
 require (
+	github.com/dave/jennifer v1.4.1
+	github.com/dop251/goja v0.0.0-20210614154742-14a1ffa82844
 	github.com/google/uuid v1.2.0
 	github.com/gookit/color v1.4.2
 	github.com/lib/pq v1.10.2

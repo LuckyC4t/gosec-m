@@ -12,11 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:generate go run gen/astmap_gen.go
 package main
 
 import (
 	"flag"
 	"fmt"
+	"gosec-m/conf"
 	"io/ioutil"
 	"log"
 	"os"
@@ -128,6 +130,12 @@ var (
 
 	// exlude the folders from scan
 	flagDirsExclude arrayFlags
+
+	// 动态规则路径
+	flagRulePath = flag.String("rule", "dynamicRule", "动态规则路径")
+
+	// 是否开启debug
+	flagDebug = flag.Bool("debug", false, "debug开关")
 
 	logger *log.Logger
 )
@@ -287,6 +295,11 @@ func main() {
 		fmt.Printf("Version: %s\nGit tag: %s\nBuild date: %s\n", Version, GitTag, BuildDate)
 		os.Exit(0)
 	}
+
+	// 绑定动态规则文件路径
+	conf.Set("rulePath", *flagRulePath)
+	// 设置debug
+	conf.Set("debug", *flagDebug)
 
 	// Ensure at least one file was specified
 	if flag.NArg() == 0 {

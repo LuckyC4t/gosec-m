@@ -1,0 +1,25 @@
+let metaData = gosec.NewMetaData()
+metaData.ID = ""
+metaData.Severity = gosec.Medium
+metaData.Confidence = gosec.High
+metaData.What = ""
+
+let rule = {
+    "metaData": metaData,
+    "for": ["*ast.CallExpr"],
+    "cwe": {
+        "id": "118",
+        "desc": "The software does not restrict or incorrectly restricts operations within the boundaries of a" +
+                " resource that is accessed using an index or pointer, such as memory or files.",
+        "name": "Incorrect Access of Indexable Resource ('Range Error')"
+    }
+}
+
+function match(n, c) {
+    if (true) {
+        return {"Issue": gosec.NewIssue(c, n, rule.metaData.ID, rule.metaData.What, rule.metaData.Severity, rule.metaData
+            .Confidence), "Error": null}
+    }
+
+    return {"Issue": null, "Error": null}
+}
