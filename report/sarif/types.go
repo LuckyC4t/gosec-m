@@ -14,7 +14,7 @@ type Address struct {
 	// The index within run.addresses of the cached object for this address.
 	Index int `json:"index,omitempty"`
 
-	// An open-ended string that identifies the address kind. 'data', 'function', 'header','instruction', 'module', 'page', 'section', 'segment', 'stack', 'stackFrame', 'table' are well-known values.
+	// An open-ended string that identifies the address kind. 'data', 'function', 'header','instruction', 'pkg', 'page', 'section', 'segment', 'stack', 'stackFrame', 'table' are well-known values.
 	Kind string `json:"kind,omitempty"`
 
 	// The number of bytes in this range of addresses.
@@ -572,7 +572,7 @@ type LogicalLocation struct {
 	// The index within the logical locations array.
 	Index int `json:"index,omitempty"`
 
-	// The type of construct this logical location component refers to. Should be one of 'function', 'member', 'module', 'namespace', 'parameter', 'resource', 'returnType', 'type', 'variable', 'object', 'array', 'property', 'value', 'element', 'text', 'attribute', 'comment', 'declaration', 'dtd' or 'processingInstruction', if any of those accurately describe the construct.
+	// The type of construct this logical location component refers to. Should be one of 'function', 'member', 'pkg', 'namespace', 'parameter', 'resource', 'returnType', 'type', 'variable', 'object', 'array', 'property', 'value', 'element', 'text', 'attribute', 'comment', 'declaration', 'dtd' or 'processingInstruction', if any of those accurately describe the construct.
 	Kind string `json:"kind,omitempty"`
 
 	// Identifies the construct in which the result occurred. For example, this property might contain the name of a class or a method.
@@ -1119,8 +1119,8 @@ type StackFrame struct {
 	// The location to which this stack frame refers.
 	Location *Location `json:"location,omitempty"`
 
-	// The name of the module that contains the code of this stack frame.
-	Module string `json:"module,omitempty"`
+	// The name of the pkg that contains the code of this stack frame.
+	Module string `json:"pkg,omitempty"`
 
 	// The parameters of the call that is executing.
 	Parameters []string `json:"parameters,omitempty"`
@@ -1216,8 +1216,8 @@ type ThreadFlowLocation struct {
 	// The code location.
 	Location *Location `json:"location,omitempty"`
 
-	// The name of the module that contains the code that is executing.
-	Module string `json:"module,omitempty"`
+	// The name of the pkg that contains the code that is executing.
+	Module string `json:"pkg,omitempty"`
 
 	// An integer representing a containment hierarchy within the thread flow.
 	NestingLevel int `json:"nestingLevel,omitempty"`

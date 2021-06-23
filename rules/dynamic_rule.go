@@ -17,3 +17,8 @@ func (d *DynamicRule) ID() string {
 func (d *DynamicRule) Match(n ast.Node, c *gosec.Context) (*gosec.Issue, error) {
 	return d.match(n, c)
 }
+
+func (d *DynamicRule) Init(id string, match func(ast.Node, *gosec.Context) (*gosec.Issue, error)) {
+	d.id = id
+	d.match = match
+}

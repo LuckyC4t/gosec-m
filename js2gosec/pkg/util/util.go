@@ -1,41 +1,18 @@
-package gosec
+package util
 
 import (
 	"github.com/dop251/goja"
 	"gosec-m/conf"
+	"gosec-m/js2gosec/runner"
 	"log"
 	"reflect"
 )
 
-type utilstModule struct {
-	DynamicRuleRunner
-}
-
-func (runner DynamicRuleRunner) createUtils() *goja.Object {
-	vm := runner.GetRuntime()
-	utilsObj := vm.NewObject()
-
-	u := utilstModule{runner}
-	for name, val := range u.Export() {
-		utilsObj.Set(name, val)
-	}
-
-	return utilsObj
-}
-
-func (u utilstModule) Export() map[string]interface{} {
-	return map[string]interface{}{
-		"getGoType":   u.getGoType,
-		"isType":      u.isType,
-		"transformTo": u.transformTo,
-	}
-}
-
-func (u utilstModule) getGoType(call goja.FunctionCall) goja.Value {
+func (u UtilstModule) getGoType(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(ErrWrongArgsNumber))
+		panic(rt.ToValue(runner.ErrWrongArgsNumber))
 	}
 
 	res := call.Argument(0).ExportType().String()
@@ -43,11 +20,11 @@ func (u utilstModule) getGoType(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (u utilstModule) isType(call goja.FunctionCall) goja.Value {
+func (u UtilstModule) isType(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(ErrWrongArgsNumber))
+		panic(rt.ToValue(runner.ErrWrongArgsNumber))
 	}
 
 	from := call.Argument(0)
@@ -56,11 +33,11 @@ func (u utilstModule) isType(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(from.ExportType().String() == check)
 }
 
-func (u utilstModule) transformTo(call goja.FunctionCall) goja.Value {
+func (u UtilstModule) transformTo(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(ErrWrongArgsNumber))
+		panic(rt.ToValue(runner.ErrWrongArgsNumber))
 	}
 
 	from := call.Argument(0)

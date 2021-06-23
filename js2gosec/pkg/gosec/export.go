@@ -1,33 +1,23 @@
 package gosec
 
-import "github.com/dop251/goja"
+import (
+	"gosec-m"
+	"gosec-m/js2gosec/runner"
+)
 
-type gosecModule struct {
-	DynamicRuleRunner
+type GosecModule struct {
+	*runner.DynamicRuleRunner
 }
 
-func (runner DynamicRuleRunner) createGosec() *goja.Object {
-	vm := runner.GetRuntime()
-	gosecObj := vm.NewObject()
-
-	g := gosecModule{runner}
-
-	for name, val := range g.Export() {
-		gosecObj.Set(name, val)
-	}
-
-	return gosecObj
-}
-
-func (g gosecModule) Export() map[string]interface{} {
+func (g GosecModule) Export() map[string]interface{} {
 	return map[string]interface{}{
 		// call_list
 		"NewCallList": g.NewCallList,
 
 		// config
-		"Nosec":            Nosec,
-		"Audit":            Audit,
-		"NoSecAlternative": NoSecAlternative,
+		"Nosec":            gosec.Nosec,
+		"Audit":            gosec.Audit,
+		"NoSecAlternative": gosec.NoSecAlternative,
 
 		// helpers
 		"ConcatString":            g.ConcatString,
@@ -41,9 +31,9 @@ func (g gosecModule) Export() map[string]interface{} {
 		"MatchCallByPackage":      g.MatchCallByPackage,
 
 		// issue
-		"High":        High,
-		"Medium":      Medium,
-		"Low":         Low,
+		"High":        gosec.High,
+		"Medium":      gosec.Medium,
+		"Low":         gosec.Low,
 		"NewMetaData": g.NewMetaData,
 		"NewIssue":    g.NewIssue,
 

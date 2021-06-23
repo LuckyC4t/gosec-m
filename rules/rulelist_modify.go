@@ -3,9 +3,10 @@ package rules
 import (
 	"errors"
 	"go/ast"
-	"gosec-m"
+	gosec "gosec-m"
 	"gosec-m/conf"
 	"gosec-m/cwe"
+	"gosec-m/js2gosec"
 	"log"
 	"os"
 	"path/filepath"
@@ -77,8 +78,8 @@ func loadDynamicRules(path string) []RuleDefinition {
 }
 
 func loadGojaFile(file string, context []byte) RuleDefinition {
-	runner := gosec.NewRunner()
-	runner.InitRunner()
+	runner := js2gosec.NewRunner()
+	js2gosec.InitRunner(runner)
 
 	vm := runner.GetRuntime()
 	output, err := vm.RunScript(file, string(context))
@@ -116,7 +117,7 @@ func loadGojaFile(file string, context []byte) RuleDefinition {
 	}
 
 	// 获取rule执行函数match，并用ruleTemplate来实现Rule接口
-	var match func(node ast.Node, context *gosec.Context) gosec.GojaRuleResult
+	var match func(node ast.Node, context *gosec.Context) js2gosec.GojaRuleResult
 	gojaMatchFunc := vm.Get("match")
 	if gojaMatchFunc == nil {
 		return RuleDefinition{}
@@ -146,7 +147,7 @@ func loadGojaFile(file string, context []byte) RuleDefinition {
 			// 构造绑定规则的类型
 			var nodes []ast.Node
 			for _, typ := range ruleInfo["for"].([]interface{}) {
-				nodes = append(nodes, gosec.GetNewAstNodeByType(typ.(string)))
+				nodes = append(nodes, js2gosec.GetNewAstNodeByType(typ.(string)))
 			}
 
 			return &rule, nodes
