@@ -19,7 +19,7 @@ import (
 	"regexp"
 	"strings"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 type sqlStatement struct {

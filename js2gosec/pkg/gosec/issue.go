@@ -1,9 +1,9 @@
 package gosec
 
 import (
+	"github.com/LuckyC4t/gosec-m"
 	"github.com/dop251/goja"
 	"go/ast"
-	"gosec-m"
 )
 
 func (g GosecModule) NewMetaData(call goja.FunctionCall) goja.Value {

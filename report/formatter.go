@@ -17,16 +17,16 @@ package report
 import (
 	"io"
 
-	"gosec-m"
-	"gosec-m/report/csv"
-	"gosec-m/report/golint"
-	"gosec-m/report/html"
-	"gosec-m/report/json"
-	"gosec-m/report/junit"
-	"gosec-m/report/sarif"
-	"gosec-m/report/sonar"
-	"gosec-m/report/text"
-	"gosec-m/report/yaml"
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/report/csv"
+	"github.com/LuckyC4t/gosec-m/report/golint"
+	"github.com/LuckyC4t/gosec-m/report/html"
+	"github.com/LuckyC4t/gosec-m/report/json"
+	"github.com/LuckyC4t/gosec-m/report/junit"
+	"github.com/LuckyC4t/gosec-m/report/sarif"
+	"github.com/LuckyC4t/gosec-m/report/sonar"
+	"github.com/LuckyC4t/gosec-m/report/text"
+	"github.com/LuckyC4t/gosec-m/report/yaml"
 )
 
 // Format enumerates the output format for reported issues

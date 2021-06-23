@@ -1,10 +1,10 @@
 package gosec
 
 import (
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
 	"go/ast"
-	"gosec-m"
-	"gosec-m/js2gosec/runner"
 )
 
 func (g GosecModule) GetCallInfo(call goja.FunctionCall) goja.Value {

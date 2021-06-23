@@ -3,8 +3,8 @@ package yaml
 import (
 	"io"
 
+	"github.com/LuckyC4t/gosec-m"
 	"gopkg.in/yaml.v2"
-	"gosec-m"
 )
 
 // WriteReport write a report in yaml format to the output writer

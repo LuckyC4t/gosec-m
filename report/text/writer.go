@@ -9,8 +9,8 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/LuckyC4t/gosec-m"
 	"github.com/gookit/color"
-	"gosec-m"
 )
 
 var (

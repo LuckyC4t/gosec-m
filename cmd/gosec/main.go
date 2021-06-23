@@ -18,16 +18,16 @@ package main
 import (
 	"flag"
 	"fmt"
-	"gosec-m/conf"
+	"github.com/LuckyC4t/gosec-m/conf"
 	"io/ioutil"
 	"log"
 	"os"
 	"sort"
 	"strings"
 
-	"gosec-m"
-	"gosec-m/report"
-	"gosec-m/rules"
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/report"
+	"github.com/LuckyC4t/gosec-m/rules"
 )
 
 const (

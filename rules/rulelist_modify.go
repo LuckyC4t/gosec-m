@@ -2,11 +2,11 @@ package rules
 
 import (
 	"errors"
+	gosec "github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/conf"
+	"github.com/LuckyC4t/gosec-m/cwe"
+	"github.com/LuckyC4t/gosec-m/js2gosec"
 	"go/ast"
-	gosec "gosec-m"
-	"gosec-m/conf"
-	"gosec-m/cwe"
-	"gosec-m/js2gosec"
 	"log"
 	"os"
 	"path/filepath"

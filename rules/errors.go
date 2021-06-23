@@ -18,7 +18,7 @@ import (
 	"go/ast"
 	"go/types"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 type noErrorCheck struct {

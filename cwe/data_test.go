@@ -1,9 +1,9 @@
 package cwe_test
 
 import (
+	"github.com/LuckyC4t/gosec-m/cwe"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gosec-m/cwe"
 )
 
 var _ = Describe("CWE data", func() {

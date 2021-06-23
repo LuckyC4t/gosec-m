@@ -1,7 +1,7 @@
 package util
 
 import (
-	"gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 )
 
 type UtilstModule struct {

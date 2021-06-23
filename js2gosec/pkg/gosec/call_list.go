@@ -1,9 +1,9 @@
 package gosec
 
 import (
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
-	"gosec-m"
-	"gosec-m/js2gosec/runner"
 )
 
 func (g GosecModule) NewCallList(call goja.FunctionCall) goja.Value {

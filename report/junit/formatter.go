@@ -4,7 +4,7 @@ import (
 	"html"
 	"strconv"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 func generatePlaintext(issue *gosec.Issue) string {

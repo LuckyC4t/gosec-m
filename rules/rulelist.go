@@ -14,7 +14,7 @@
 
 package rules
 
-import "gosec-m"
+import "github.com/LuckyC4t/gosec-m"
 
 // RuleDefinition contains the description of a rule and a mechanism to
 // create it.

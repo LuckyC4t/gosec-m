@@ -1,8 +1,8 @@
 package gosec_test
 
 import (
-	"gosec-m"
-	"gosec-m/testutils"
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/testutils"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

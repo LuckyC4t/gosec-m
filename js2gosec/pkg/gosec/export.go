@@ -1,8 +1,8 @@
 package gosec
 
 import (
-	"gosec-m"
-	"gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 )
 
 type GosecModule struct {

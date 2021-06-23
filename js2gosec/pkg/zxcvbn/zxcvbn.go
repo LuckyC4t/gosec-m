@@ -1,9 +1,9 @@
 package zxcvbn
 
 import (
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
 	"github.com/nbutton23/zxcvbn-go"
-	"gosec-m/js2gosec/runner"
 )
 
 func (z ZxcvbnModule) PasswordStrength(call goja.FunctionCall) goja.Value {

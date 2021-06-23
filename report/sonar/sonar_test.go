@@ -1,10 +1,10 @@
 package sonar_test
 
 import (
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/report/sonar"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gosec-m"
-	"gosec-m/report/sonar"
 )
 
 var _ = Describe("Sonar Formatter", func() {

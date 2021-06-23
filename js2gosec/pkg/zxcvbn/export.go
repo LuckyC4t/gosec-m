@@ -1,7 +1,7 @@
 package zxcvbn
 
 import (
-	"gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 )
 
 type ZxcvbnModule struct {

@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/cwe"
+	"github.com/LuckyC4t/gosec-m/report/junit"
+	"github.com/LuckyC4t/gosec-m/report/sonar"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"gopkg.in/yaml.v2"
-	"gosec-m"
-	"gosec-m/cwe"
-	"gosec-m/report/junit"
-	"gosec-m/report/sonar"
 )
 
 func createIssueWithFileWhat(file, what string) *gosec.Issue {

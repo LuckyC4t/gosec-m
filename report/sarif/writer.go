@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 // WriteReport write a report in SARIF format to the output writer

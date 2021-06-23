@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 const (

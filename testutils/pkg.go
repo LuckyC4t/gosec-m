@@ -9,8 +9,8 @@ import (
 	"path"
 	"strings"
 
+	"github.com/LuckyC4t/gosec-m"
 	"golang.org/x/tools/go/packages"
-	"gosec-m"
 )
 
 type buildObj struct {

@@ -1,4 +1,4 @@
-module gosec-m
+module github.com/LuckyC4t/gosec-m
 
 require (
 	github.com/dave/jennifer v1.4.1

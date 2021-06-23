@@ -24,7 +24,7 @@ import (
 	"os"
 	"strconv"
 
-	"gosec-m/cwe"
+	"github.com/LuckyC4t/gosec-m/cwe"
 )
 
 // Score type used by severity and confidence values

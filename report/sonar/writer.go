@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 // WriteReport write a report in sonar format to the output writer

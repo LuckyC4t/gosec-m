@@ -1,9 +1,9 @@
 package pkg
 
 import (
+	"github.com/LuckyC4t/gosec-m/js2gosec/pkg/zxcvbn"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
-	"gosec-m/js2gosec/pkg/zxcvbn"
-	"gosec-m/js2gosec/runner"
 )
 
 func CreatZXCVBN(ruleRunner *runner.DynamicRuleRunner) *goja.Object {

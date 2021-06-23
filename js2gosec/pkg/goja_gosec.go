@@ -1,9 +1,9 @@
 package pkg
 
 import (
+	"github.com/LuckyC4t/gosec-m/js2gosec/pkg/gosec"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
-	"gosec-m/js2gosec/pkg/gosec"
-	"gosec-m/js2gosec/runner"
 )
 
 func CreateGosec(ruleRunner *runner.DynamicRuleRunner) *goja.Object {

@@ -1,6 +1,6 @@
 package gosec
 
-import "gosec-m/cwe"
+import "github.com/LuckyC4t/gosec-m/cwe"
 
 func GetCweByRule(id string) *cwe.Weakness {
 	cweID, ok := ruleToCWE[id]

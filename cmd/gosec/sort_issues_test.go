@@ -3,9 +3,9 @@ package main
 import (
 	"testing"
 
+	"github.com/LuckyC4t/gosec-m"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gosec-m"
 )
 
 var defaultIssue = gosec.Issue{

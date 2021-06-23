@@ -20,8 +20,8 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/LuckyC4t/gosec-m"
 	zxcvbn "github.com/nbutton23/zxcvbn-go"
-	"gosec-m"
 )
 
 type credentials struct {

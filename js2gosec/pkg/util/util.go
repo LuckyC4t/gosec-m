@@ -1,9 +1,9 @@
 package util
 
 import (
+	"github.com/LuckyC4t/gosec-m/conf"
+	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
 	"github.com/dop251/goja"
-	"gosec-m/conf"
-	"gosec-m/js2gosec/runner"
 	"log"
 	"reflect"
 )

@@ -1,8 +1,8 @@
 package rules
 
 import (
+	"github.com/LuckyC4t/gosec-m"
 	"go/ast"
-	"gosec-m"
 )
 
 type DynamicRule struct {

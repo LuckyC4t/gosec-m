@@ -3,10 +3,10 @@ package sarif_test
 import (
 	"bytes"
 
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/report/sarif"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gosec-m"
-	"gosec-m/report/sarif"
 )
 
 var _ = Describe("Sarif Formatter", func() {

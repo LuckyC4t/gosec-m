@@ -4,7 +4,7 @@ import (
 	"encoding/csv"
 	"io"
 
-	"gosec-m"
+	"github.com/LuckyC4t/gosec-m"
 )
 
 // WriteReport write a report in csv format to the output writer

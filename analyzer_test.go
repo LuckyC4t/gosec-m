@@ -7,13 +7,13 @@ import (
 	"os"
 	"strings"
 
+	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/rules"
 	"golang.org/x/tools/go/packages"
-	"gosec-m"
-	"gosec-m/rules"
 
+	"github.com/LuckyC4t/gosec-m/testutils"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gosec-m/testutils"
 )
 
 var _ = Describe("Analyzer", func() {
