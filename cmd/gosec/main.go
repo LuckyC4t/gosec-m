@@ -18,7 +18,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/LuckyC4t/gosec-m/conf"
+	"github.com/LuckyC4t/gosec-m/internal/conf"
 	"io/ioutil"
 	"log"
 	"os"

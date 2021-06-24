@@ -61,5 +61,5 @@ func main() {
 		Params(jen.Id("typename").String()).
 		Qual("go/ast", "Node").Block(blockStmts...)
 
-	f.Save("../../js2gosec/astmap.go")
+	f.Save("../../internal/js2gosec/astmap.go")
 }

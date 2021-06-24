@@ -492,7 +492,7 @@ var _ = Describe("Analyzer", func() {
 
 	Context("when appending errors", func() {
 		It("should skip error for non-buildable packages", func() {
-			analyzer.AppendError("test", errors.New(`loading file from package "pkg/test": no buildable Go source files in pkg/test`))
+			analyzer.AppendError("test", errors.New(`loading file from package "xfmr/test": no buildable Go source files in xfmr/test`))
 			_, _, errors := analyzer.Report()
 			Expect(len(errors)).To(Equal(0))
 		})

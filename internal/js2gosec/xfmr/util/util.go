@@ -1,8 +1,8 @@
 package util
 
 import (
-	"github.com/LuckyC4t/gosec-m/conf"
-	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/conf"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/errors"
 	"github.com/dop251/goja"
 	"log"
 	"reflect"
@@ -12,7 +12,7 @@ func (u UtilstModule) getGoType(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	res := call.Argument(0).ExportType().String()
@@ -24,7 +24,7 @@ func (u UtilstModule) isType(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	from := call.Argument(0)
@@ -37,7 +37,7 @@ func (u UtilstModule) transformTo(call goja.FunctionCall) goja.Value {
 	rt := u.GetRuntime()
 
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	from := call.Argument(0)

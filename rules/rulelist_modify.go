@@ -2,10 +2,11 @@ package rules
 
 import (
 	"errors"
-	gosec "github.com/LuckyC4t/gosec-m"
-	"github.com/LuckyC4t/gosec-m/conf"
+	"github.com/LuckyC4t/gosec-m"
 	"github.com/LuckyC4t/gosec-m/cwe"
-	"github.com/LuckyC4t/gosec-m/js2gosec"
+	"github.com/LuckyC4t/gosec-m/internal/conf"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/runner"
 	"go/ast"
 	"log"
 	"os"
@@ -78,10 +79,10 @@ func loadDynamicRules(path string) []RuleDefinition {
 }
 
 func loadGojaFile(file string, context []byte) RuleDefinition {
-	runner := js2gosec.NewRunner()
-	js2gosec.InitRunner(runner)
+	ruleRunner := js2gosec.NewRunner()
+	js2gosec.InitRunner(ruleRunner)
 
-	vm := runner.GetRuntime()
+	vm := ruleRunner.GetRuntime()
 	output, err := vm.RunScript(file, string(context))
 	if err != nil {
 		log.Printf("runtime error: %s", err)
@@ -117,7 +118,7 @@ func loadGojaFile(file string, context []byte) RuleDefinition {
 	}
 
 	// 获取rule执行函数match，并用ruleTemplate来实现Rule接口
-	var match func(node ast.Node, context *gosec.Context) js2gosec.GojaRuleResult
+	var match func(node ast.Node, context *gosec.Context) runner.GojaRuleResult
 	gojaMatchFunc := vm.Get("match")
 	if gojaMatchFunc == nil {
 		return RuleDefinition{}

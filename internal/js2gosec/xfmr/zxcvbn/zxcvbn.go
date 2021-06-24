@@ -1,15 +1,15 @@
 package zxcvbn
 
 import (
-	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/errors"
 	"github.com/dop251/goja"
 	"github.com/nbutton23/zxcvbn-go"
 )
 
-func (z ZxcvbnModule) PasswordStrength(call goja.FunctionCall) goja.Value {
+func (z ZxcvbnModule) passwordStrength(call goja.FunctionCall) goja.Value {
 	runtime := z.GetRuntime()
 	if len(call.Arguments) != 2 {
-		panic(runtime.ToValue(runner.ErrWrongArgsNumber))
+		panic(runtime.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	password := call.Argument(0).String()

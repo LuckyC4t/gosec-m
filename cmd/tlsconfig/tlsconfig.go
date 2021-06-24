@@ -19,7 +19,7 @@ import (
 )
 
 var (
-	pkg        = flag.String("pkg", "rules", "package name to be added to the output file")
+	pkg        = flag.String("xfmr", "rules", "package name to be added to the output file")
 	outputFile = flag.String("outputFile", "tls_config.go", "name of the output file")
 )
 

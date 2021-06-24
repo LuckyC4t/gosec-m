@@ -1,16 +1,10 @@
 package js2gosec
 
 import (
-	"github.com/LuckyC4t/gosec-m"
-	"github.com/LuckyC4t/gosec-m/js2gosec/pkg"
-	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/xfmr"
 	"github.com/dop251/goja"
 )
-
-type GojaRuleResult struct {
-	Issue *gosec.Issue
-	Error string
-}
 
 func NewRunner() *runner.DynamicRuleRunner {
 	vm := goja.New()
@@ -20,9 +14,9 @@ func NewRunner() *runner.DynamicRuleRunner {
 }
 
 func InitRunner(ruleRunner *runner.DynamicRuleRunner) {
-	gosecObj := pkg.CreateGosec(ruleRunner)
-	utilsObj := pkg.CreateUtils(ruleRunner)
-	zxcvbnObj := pkg.CreatZXCVBN(ruleRunner)
+	gosecObj := xfmr.CreateGosec(ruleRunner)
+	utilsObj := xfmr.CreateUtils(ruleRunner)
+	zxcvbnObj := xfmr.CreatZXCVBN(ruleRunner)
 
 	runtime := ruleRunner.GetRuntime()
 

@@ -2,15 +2,15 @@ package gosec
 
 import (
 	"github.com/LuckyC4t/gosec-m"
-	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/errors"
 	"github.com/dop251/goja"
 	"go/ast"
 )
 
-func (g GosecModule) GetCallInfo(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getCallInfo(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(ast.Node)
@@ -24,10 +24,10 @@ func (g GosecModule) GetCallInfo(call goja.FunctionCall) goja.Value {
 	return rt.ToValue([]string{typ, method})
 }
 
-func (g GosecModule) GetString(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getString(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(ast.Node)
@@ -38,10 +38,10 @@ func (g GosecModule) GetString(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(str)
 }
 
-func (g GosecModule) GetIdentStringValues(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getIdentStringValues(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	id := call.Argument(0).Export().(*ast.Ident)
@@ -51,10 +51,10 @@ func (g GosecModule) GetIdentStringValues(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) GetCallStringArgsValues(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getCallStringArgsValues(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(ast.Node)
@@ -65,11 +65,11 @@ func (g GosecModule) GetCallStringArgsValues(call goja.FunctionCall) goja.Value 
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) MatchCallByPackage(call goja.FunctionCall) goja.Value {
+func (g GosecModule) matchCallByPackage(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 
 	if len(call.Arguments) != 4 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(ast.Node)
@@ -86,11 +86,11 @@ func (g GosecModule) MatchCallByPackage(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) GetBinaryExprOperands(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getBinaryExprOperands(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	be := call.Argument(0).Export().(*ast.BinaryExpr)
@@ -98,11 +98,11 @@ func (g GosecModule) GetBinaryExprOperands(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) ConcatString(call goja.FunctionCall) goja.Value {
+func (g GosecModule) concatString(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(*ast.BinaryExpr)
@@ -111,11 +111,11 @@ func (g GosecModule) ConcatString(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) FindVarIdentities(call goja.FunctionCall) goja.Value {
+func (g GosecModule) findVarIdentities(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 
 	if len(call.Arguments) != 2 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(*ast.BinaryExpr)
@@ -126,11 +126,11 @@ func (g GosecModule) FindVarIdentities(call goja.FunctionCall) goja.Value {
 	return rt.ToValue(res)
 }
 
-func (g GosecModule) GetInt(call goja.FunctionCall) goja.Value {
+func (g GosecModule) getInt(call goja.FunctionCall) goja.Value {
 	rt := g.GetRuntime()
 
 	if len(call.Arguments) != 1 {
-		panic(rt.ToValue(runner.ErrWrongArgsNumber))
+		panic(rt.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	n := call.Argument(0).Export().(ast.Node)

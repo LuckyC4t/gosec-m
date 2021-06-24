@@ -80,9 +80,9 @@ var _ = Describe("Helpers", func() {
 		It("should create a proper regexp", func() {
 			r := gosec.ExcludedDirsRegExp([]string{"test"})
 			Expect(len(r)).Should(Equal(1))
-			match := r[0].MatchString("/home/go/src/project/test/pkg")
+			match := r[0].MatchString("/home/go/src/project/test/xfmr")
 			Expect(match).Should(BeTrue())
-			match = r[0].MatchString("/home/go/src/project/vendor/pkg")
+			match = r[0].MatchString("/home/go/src/project/vendor/xfmr")
 			Expect(match).Should(BeFalse())
 		})
 

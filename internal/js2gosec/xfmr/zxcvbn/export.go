@@ -1,7 +1,7 @@
 package zxcvbn
 
 import (
-	"github.com/LuckyC4t/gosec-m/js2gosec/runner"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/runner"
 )
 
 type ZxcvbnModule struct {
@@ -10,6 +10,6 @@ type ZxcvbnModule struct {
 
 func (z ZxcvbnModule) Export() map[string]interface{} {
 	return map[string]interface{}{
-		"passwordStrength": z.PasswordStrength,
+		"passwordStrength": z.passwordStrength,
 	}
 }

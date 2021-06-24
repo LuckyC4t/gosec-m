@@ -2,26 +2,27 @@ package gosec
 
 import (
 	"github.com/LuckyC4t/gosec-m"
+	"github.com/LuckyC4t/gosec-m/internal/js2gosec/errors"
 	"github.com/dop251/goja"
 	"go/ast"
 )
 
-func (g GosecModule) NewMetaData(call goja.FunctionCall) goja.Value {
+func (g GosecModule) newMetaData(call goja.FunctionCall) goja.Value {
 	r := g.GetRuntime()
 
 	if len(call.Arguments) != 0 {
-		panic(r.ToValue("Wrong Num Args"))
+		panic(r.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	value := new(gosec.MetaData)
 	return r.ToValue(value)
 }
 
-func (g GosecModule) NewIssue(call goja.FunctionCall) goja.Value {
+func (g GosecModule) newIssue(call goja.FunctionCall) goja.Value {
 	r := g.GetRuntime()
 
 	if len(call.Arguments) != 6 {
-		panic(r.ToValue("Wrong Num Args"))
+		panic(r.ToValue(errors.ErrWrongArgsNumber))
 	}
 
 	c := call.Argument(0).Export().(*gosec.Context)

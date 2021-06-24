@@ -139,7 +139,7 @@ func (gosec *Analyzer) Process(buildTags []string, packagePaths ...string) error
 			if pkg.Name != "" {
 				err := gosec.ParseErrors(pkg)
 				if err != nil {
-					return fmt.Errorf("parsing errors in pkg %q: %v", pkg.Name, err)
+					return fmt.Errorf("parsing errors in xfmr %q: %v", pkg.Name, err)
 				}
 				gosec.Check(pkg)
 			}
