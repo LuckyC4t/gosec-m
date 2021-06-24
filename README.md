@@ -79,7 +79,7 @@ function match(n, c) {
 }
 ```
 
-## 相关仓库
+## 参考项目
 
 - [gosec](https://github.com/securego/gosec) — Golang security checker
 
