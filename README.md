@@ -79,6 +79,10 @@ function match(n, c) {
 }
 ```
 
+## 风险提示
+
+该项目只是实验性质项目，因我研发水平有限且未经正规测试流程。运行过程中难免存在崩溃等问题，请谅解。Orz
+
 ## 参考项目
 
 - [gosec](https://github.com/securego/gosec) — Golang security checker
