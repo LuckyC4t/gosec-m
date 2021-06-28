@@ -1,14 +1,14 @@
 let metaData = gosec.NewMetaData()
-metaData.ID = "G301"
+metaData.ID = "G306"
 metaData.Severity = gosec.Medium
 metaData.Confidence = gosec.High
-metaData.What = "Expect directory permissions to be 0750 or less"
+metaData.What = "Expect WriteFile permissions to be 0600 or less"
 
 let rule = {
     "metaData": metaData,
-    "mode": parseInt("0750", 8),
-    "pkgs": ["os"],
-    "calls": ["Mkdir", "MkdirAll"],
+    "mode": parseInt("0600", 8),
+    "pkgs": ["io/ioutil", "os"],
+    "calls": ["WriteFile"],
     "for": ["*ast.CallExpr"]
 }
 
