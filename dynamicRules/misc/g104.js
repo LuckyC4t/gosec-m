@@ -95,8 +95,8 @@ function match(n, ctx) {
             break
         case "*ast.ExprStmt":
             var stmt = utils.transformTo(n, "*ast.ExprStmt")
-            if (utils.isType(stmt.X, "*ast.CallExpr") && rule.whitelist.ContainsCallExpr(stmt.X, ctx)) {
-                let callExpr = utils.transformTo(stmt.X, "*ast.CallExpr")
+            let callExpr = utils.transformTo(stmt.X, "*ast.CallExpr")
+            if (callExpr !== null && rule.whitelist.ContainsCallExpr(stmt.X, ctx) === null) {
                 let pos = returnsError(callExpr, ctx)
                 if (pos >= 0) {
                     return {
