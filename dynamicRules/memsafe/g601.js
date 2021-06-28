@@ -43,8 +43,7 @@ function match(n, c) {
 
                     let object = utils.transformTo(assignment.Lhs[1], "*ast.Ident")
                     if (object !== null) {
-                        rule.aliases[object.Obj] = undefined
-
+                        rule.aliases[object.Obj.Name+"|"+object.Obj.Pos()] = undefined
                         if (rule.rightBrace < node.Body.Rbrace) {
                             rule.rightBrace = node.Body.Rbrace
                         }
@@ -69,7 +68,7 @@ function match(n, c) {
 
             let ident = utils.transformTo(node.X, "*ast.Ident")
             if (ident !== null && node.Op.String() === "&") {
-                if (rule.aliases.hasOwnProperty(ident.Obj)) {
+                if (rule.aliases.hasOwnProperty(ident.Obj.Name+"|"+ident.Obj.Pos())) {
                     return {"Issue": gosec.NewIssue(c, n, rule.metaData.ID, rule.metaData.What, rule.metaData.Severity, rule.metaData
                             .Confidence), "Error": null}
                 }
