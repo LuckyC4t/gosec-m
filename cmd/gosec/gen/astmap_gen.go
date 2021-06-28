@@ -5,6 +5,7 @@ import (
 	jen "github.com/dave/jennifer/jen"
 	"go/types"
 	"golang.org/x/tools/go/loader"
+	"log"
 )
 
 func main() {
@@ -61,5 +62,8 @@ func main() {
 		Params(jen.Id("typename").String()).
 		Qual("go/ast", "Node").Block(blockStmts...)
 
-	f.Save("../../internal/js2gosec/astmap.go")
+	err := f.Save("../../internal/js2gosec/astmap.go")
+	if err != nil {
+		log.Fatal(err)
+	}
 }

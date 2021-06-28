@@ -4,6 +4,7 @@ import (
 	"github.com/LuckyC4t/gosec-m/internal/js2gosec/runner"
 	"github.com/LuckyC4t/gosec-m/internal/js2gosec/xfmr"
 	"github.com/dop251/goja"
+	"log"
 )
 
 func NewRunner() *runner.DynamicRuleRunner {
@@ -20,7 +21,13 @@ func InitRunner(ruleRunner *runner.DynamicRuleRunner) {
 
 	runtime := ruleRunner.GetRuntime()
 
-	runtime.Set("gosec", gosecObj)
-	runtime.Set("utils", utilsObj)
-	runtime.Set("zxcvbn", zxcvbnObj)
+	if err := runtime.Set("gosec", gosecObj); err != nil {
+		log.Fatal(err)
+	}
+	if err := runtime.Set("utils", utilsObj); err != nil {
+		log.Fatal(err)
+	}
+	if err := runtime.Set("zxcvbn", zxcvbnObj); err != nil {
+		log.Fatal(err)
+	}
 }

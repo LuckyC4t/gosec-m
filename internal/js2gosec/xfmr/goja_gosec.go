@@ -4,6 +4,7 @@ import (
 	"github.com/LuckyC4t/gosec-m/internal/js2gosec/runner"
 	"github.com/LuckyC4t/gosec-m/internal/js2gosec/xfmr/gosec"
 	"github.com/dop251/goja"
+	"log"
 )
 
 func CreateGosec(ruleRunner *runner.DynamicRuleRunner) *goja.Object {
@@ -13,7 +14,9 @@ func CreateGosec(ruleRunner *runner.DynamicRuleRunner) *goja.Object {
 	g := gosec.GosecModule{ruleRunner}
 
 	for name, val := range g.Export() {
-		gosecObj.Set(name, val)
+		if err := gosecObj.Set(name, val); err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	return gosecObj

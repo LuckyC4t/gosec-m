@@ -25,7 +25,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
@@ -351,7 +350,7 @@ func (gosec *Analyzer) Visit(n ast.Node) ast.Visitor {
 		if err != nil {
 			file, line := GetLocation(n, gosec.context)
 			file = path.Base(file)
-			gosec.logger.Printf("Rule error: %v => %s (%s:%d)\n", reflect.TypeOf(rule), err, file, line)
+			gosec.logger.Printf("Rule error: %v => %s (%s:%d)\n", rule.ID(), err, file, line)
 		}
 		if issue != nil {
 			gosec.issues = append(gosec.issues, issue)
