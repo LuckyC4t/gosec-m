@@ -30,9 +30,16 @@ function containsReaderCall(node, ctx, list) {
         return true
     }
 
-    let res = gosec.GetCallInfo(node, ctx)
-    let s = res[0]
-    let idt = res[1]
+    let s = ""
+    let idt = ""
+    try {
+        let res = gosec.GetCallInfo(node, ctx)
+        s = res[0]
+        idt = res[1]
+    } catch (e) {
+
+    }
+
     return list.Contains(s, idt)
 }
 
