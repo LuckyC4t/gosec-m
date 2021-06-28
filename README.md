@@ -25,7 +25,15 @@ gosec -rule=/tmp/dynamicRule/ {gosec参数} {需要扫描的路径}
 ```
 如果需要输出js加载时后的输出，则需要添加`-debug`参数。
 ```bash
-gosec -rule=/tmp/dynamicRule/ -debug {gosec参数} {需要扫描的路径}
+gosec -rule=/tmp/dynamicRule/ -debug=true {gosec参数} {需要扫描的路径}
+```
+
+docker
+```bash
+docker build -t gosec-m .
+```
+```bash
+docker run --rm -it -w /<PROJECT>/ -v <YOUR PROJECT PATH>/<PROJECT>:/<PROJECT> gosec-m /<PROJECT>/...
 ```
 
 ### 规则
