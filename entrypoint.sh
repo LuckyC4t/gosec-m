@@ -6,6 +6,6 @@ ARGS=("$@")
 
 # update rules
 echo 'update rules'
-git pull
+git -C /gosec-m pull
 
 /bin/gosec-m -rule=/gosec-m/dynamicRules ${ARGS[*]}
